@@ -88,6 +88,14 @@ func (l *Lexeme) compare(o *Lexeme) int {
 }
 
 /**
+ * 获取词元字符串
+ * @return string
+ */
+func (l *Lexeme) GetText() string {
+	return l.lexemeText
+}
+
+/**
  * 获取词元在文本中的起始位置
  * @return int
  */

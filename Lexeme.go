@@ -91,7 +91,7 @@ func (l *Lexeme) compare(o *Lexeme) int {
  * 获取词元在文本中的起始位置
  * @return int
  */
-func (l *Lexeme) getBeginPosition() int {
+func (l *Lexeme) GetBeginPosition() int {
 	return l.offset + l.begin
 }
 
@@ -99,11 +99,19 @@ func (l *Lexeme) getBeginPosition() int {
  * 获取词元在文本中的结束位置
  * @return int
  */
-func (l *Lexeme) getEndPosition() int {
+func (l *Lexeme) GetEndPosition() int {
 	return l.offset + l.begin + l.length
 }
 
-func (l *Lexeme) getTypeString() string {
+/**
+ * 获取词元长度
+ * @return int
+ */
+func (l *Lexeme) GetLength() int {
+	return l.length
+}
+
+func (l *Lexeme) GetTypeString() string {
 	switch l.lexemeType {
 	case LEXEME_TYPE_ENGLISH:
 		return "ENGLISH"
@@ -139,7 +147,7 @@ func (l *Lexeme) append(o *Lexeme, lexemeType int) bool {
 	if o == nil {
 		return false
 	}
-	if l.getEndPosition() != o.getBeginPosition() {
+	if l.GetEndPosition() != o.GetBeginPosition() {
 		return false
 	}
 	l.length += o.length

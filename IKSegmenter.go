@@ -48,7 +48,7 @@ func (s *IKSegmenter) loadSegmenters() {
  * @return Lexeme 词元对象
  * @throws java.io.IOException
  */
-func (s *IKSegmenter) next() *Lexeme {
+func (s *IKSegmenter) Next() *Lexeme {
 	var l *Lexeme = s.context.getNextLexeme()
 	for l == nil {
 		/*
@@ -102,7 +102,7 @@ func (s *IKSegmenter) next() *Lexeme {
  * 重置分词器到初始状态
  * @param input
  */
-func (s *IKSegmenter) reset(input string) {
+func (s *IKSegmenter) Reset(input string) {
 	s.context.reset()
 	for _, segmenter := range s.segmenters {
 		segmenter.reset()

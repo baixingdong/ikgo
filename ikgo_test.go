@@ -11,7 +11,7 @@ func TestIkgo(t *testing.T) {
 
 	segmenter := NewIKSegmenter(text, true)
 	for {
-		lexme := segmenter.next()
+		lexme := segmenter.Next()
 		if lexme == nil {
 			break
 		}

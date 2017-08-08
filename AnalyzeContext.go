@@ -315,6 +315,10 @@ func (ac *AnalyzeContext) getNextLexeme() (l *Lexeme) {
 		if isStopWord(ac.segmentBuff, result.begin, result.length) {
 			//是停止词继续取列表的下一个
 			el := ac.results.Front()
+			if el == nil {
+				l = nil
+				return
+			}
 			result = el.Value.(*Lexeme)
 			ac.results.Remove(el)
 		} else {
